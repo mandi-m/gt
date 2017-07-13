@@ -24,18 +24,36 @@ let data1 = [
   { id: 1, person: 'Simon', language: 'Haskell' },
   { id: 2, person: 'Simon', language: 'C--' },
   { id: 3, person: 'James', language: 'Java' },
-  { id: 4, person: 'Rich', language: 'Clojure' },
-  { id: 5, person: '_why', language: 'Potion, Ruby' },
-  { id: 6, person: 'Guy', language: 'Fortress' },
-  { id: 6, person: 'Anders', language: 'C#' }
+  { id: 4, person: 'Anders', language: 'C#' },
+  { id: 5, person: 'Anders', language: 'Delphi' },
+  { id: 6, person: 'Matz', language: 'Ruby' },
+  { id: 6, person: 'Rich', language: 'Clojure' },
+  { id: 7, person: 'Guido', language: 'Python' },
+  { id: 8, person: 'Philip', language: 'Links' },
+  { id: 9, person: 'Guy', language: 'Scheme' },
+  { id: 10, person: 'Alan', language: 'Smalltak' },
+  { id: 11, person: 'Joe', language: 'Erlang' },
+  { id: 12, person: 'Brendan', language: 'JavaScript' },
+  { id: 13, person: '_why', language: 'Ruby' },
+  { id: 14, person: 'Brendan', language: 'Rust' },
+  { id: 15, person: 'Philip', language: 'Haskell' },
+  { id: 16, person: '_why', language: 'Potion' },
+  { id: 17, person: 'Guy', language: 'Fortress' }
 ]
 
 let data2 = [
   { id: 1, person: 'Simon', company: 'Microsoft' },
   { id: 2, person: 'James', company: '' },
-  { id: 3, person: 'Rich', company: '' },
-  { id: 4, person: '_why', company: '' },
-  { id: 5, person: 'Guy', company: 'Oracle' }
+  { id: 3, person: 'Anders', company: 'Microsoft' },
+  { id: 4, person: 'Matz', company: 'NACL' },
+  { id: 5, person: 'Rich', company: '' },
+  { id: 6, person: 'Guido', company: 'Google' },
+  { id: 7, person: 'Guy', company: 'Oracle' },
+  { id: 8, person: 'Alan', company: 'VRI' },
+  { id: 9, person: 'Joe', company: 'Ericsson' },
+  { id: 10, person: 'Brendan', company: 'Mozilla' },
+  { id: 11, person: 'Philip', company: 'University of Edinburgh' },
+  { id: 12, person: '_why', company: '' }
 ]
 
 let data3 = join(data1, data2)
