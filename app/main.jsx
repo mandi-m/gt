@@ -65,9 +65,9 @@ function join(data1, data2) {
     if (!newObj[data1[i].person]) {
       newObj[data1[i].person] = {}
       newObj[data1[i].person].person = data1[i].person
-      newObj[data1[i].person].language = data1[i].language
+      newObj[data1[i].person].language = [data1[i].language]
     } else {
-      newObj[data1[i].person].language = newObj[data1[i].person].language + ', ' + data1[i].language
+      newObj[data1[i].person].language.push(data1[i].language)
     }
   }
   for (let i = 0; i < data2.length; i++) {
@@ -78,7 +78,7 @@ function join(data1, data2) {
     sortedArr.push({
       id: x + 1,
       person: sortedKeysArray[x],
-      languages: newObj[sortedKeysArray[x]].language,
+      languages: newObj[sortedKeysArray[x]].language.sort().join(', '),
       company: newObj[sortedKeysArray[x]].company
     })
   }
