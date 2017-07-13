@@ -1,26 +1,26 @@
 'use strict'
 import React from 'react'
-import {render} from 'react-dom'
+import { render } from 'react-dom'
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 import { Form, FormGroup, Button, Panel } from 'react-bootstrap'
 
-let cols1 = [
+const cols1 = [
   { key: 'person', label: 'Person' },
   { key: 'language', label: 'Language' }
 ]
 
-let cols2 = [
+const cols2 = [
   { key: 'person', label: 'Person' },
   { key: 'company', label: 'Company' }
 ]
 
-let cols3 = [
+const cols3 = [
   { key: 'person', label: 'Person' },
   { key: 'languages', label: 'Languages' },
   { key: 'company', label: 'Company' }
 ]
 
-let data1 = [
+const data1 = [
   { id: 1, person: 'Simon', language: 'Haskell' },
   { id: 2, person: 'Simon', language: 'C--' },
   { id: 3, person: 'James', language: 'Java' },
@@ -41,7 +41,7 @@ let data1 = [
   { id: 17, person: 'Guy', language: 'Fortress' }
 ]
 
-let data2 = [
+const data2 = [
   { id: 1, person: 'Simon', company: 'Microsoft' },
   { id: 2, person: 'James', company: '' },
   { id: 3, person: 'Anders', company: 'Microsoft' },
@@ -56,11 +56,11 @@ let data2 = [
   { id: 12, person: '_why', company: '' }
 ]
 
-let data3 = join(data1, data2)
+const data3 = join(data1, data2)
 
 function join(data1, data2) {
-  let newObj = {}
-  let sortedArr = []
+  const newObj = {}
+  const sortedArr = []
   for (let i = 0; i < data1.length; i++) {
     if (!newObj[data1[i].person]) {
       newObj[data1[i].person] = {}
@@ -73,7 +73,7 @@ function join(data1, data2) {
   for (let i = 0; i < data2.length; i++) {
     newObj[data2[i].person].company = data2[i].company
   }
-  let sortedKeysArray = Object.keys(newObj).sort()
+  const sortedKeysArray = Object.keys(newObj).sort()
   for (let x = 0; x < sortedKeysArray.length; x++) {
     sortedArr.push({
       id: x + 1,
@@ -86,7 +86,7 @@ function join(data1, data2) {
   return sortedArr
 }
 
-let Table = React.createClass({
+const Table = React.createClass({
   render: function() {
     var headerComponents = this.generateHeaders(),
       rowComponents = this.generateRows()
@@ -127,11 +127,11 @@ let Table = React.createClass({
   }
 })
 
-let ButtonLogic = React.createClass({
+const ButtonLogic = React.createClass({
   getInitialState: function() {
     return {
       showJoinTable: false,
-      buttonText: 'Join Table'
+      buttonText: 'Join Tables'
     }
   },
   onClick: function() {
@@ -153,11 +153,11 @@ let ButtonLogic = React.createClass({
         <Button bsStyle="primary" onClick={this.onClick} className='text-center'> {this.state.buttonText} </Button>
         <br />
         {this.state.showJoinTable ? <Panel header={'A table of people with the languages they know and where they work. This table is alphabetized by the first name, every column is sortable, and each column can be filtered.'}> <BootstrapTable data={data3} striped={true} hover={true}>
-      <TableHeaderColumn dataField="id" isKey={true} hidden={true} dataAlign="center" dataSort={true}>ID ID</TableHeaderColumn>
-      <TableHeaderColumn dataField="person" dataSort={true} filter={ { type: 'TextFilter', delay: 100 } } >Person</TableHeaderColumn>
-      <TableHeaderColumn dataField="languages" dataSort={true} filter={ { type: 'TextFilter', delay: 100 } }>Languages</TableHeaderColumn>
-      <TableHeaderColumn dataField="company" dataSort={true} filter={ { type: 'TextFilter', delay: 100 } }>Company</TableHeaderColumn>
-  </BootstrapTable> </Panel>: null}
+          <TableHeaderColumn dataField="id" isKey={true} hidden={true} dataAlign="center" dataSort={true}>ID ID</TableHeaderColumn>
+          <TableHeaderColumn dataField="person" dataSort={true} filter={{ type: 'TextFilter', delay: 100 }} >Person</TableHeaderColumn>
+          <TableHeaderColumn dataField="languages" dataSort={true} filter={{ type: 'TextFilter', delay: 100 }}>Languages</TableHeaderColumn>
+          <TableHeaderColumn dataField="company" dataSort={true} filter={{ type: 'TextFilter', delay: 100 }}>Company</TableHeaderColumn>
+        </BootstrapTable> </Panel> : null}
       </div>
     )
   }
@@ -174,14 +174,14 @@ render(
     </Panel>
     <br />
     <Panel header={'A table of the same people and where they work. Columns are sortable'}>
-    <BootstrapTable data={data2} striped={true} hover={true}>
-      <TableHeaderColumn dataField="id" hidden={true} isKey={true} dataAlign="center" dataSort={true}>ID</TableHeaderColumn>
-      <TableHeaderColumn dataField="person" dataSort={true}>Person</TableHeaderColumn>
-      <TableHeaderColumn dataField="company" dataSort={true}>Company</TableHeaderColumn>
-    </BootstrapTable>
+      <BootstrapTable data={data2} striped={true} hover={true}>
+        <TableHeaderColumn dataField="id" hidden={true} isKey={true} dataAlign="center" dataSort={true}>ID</TableHeaderColumn>
+        <TableHeaderColumn dataField="person" dataSort={true}>Person</TableHeaderColumn>
+        <TableHeaderColumn dataField="company" dataSort={true}>Company</TableHeaderColumn>
+      </BootstrapTable>
     </Panel>
     <br />
     <ButtonLogic />
   </div>
   , document.getElementById('main')
-  )
+)
